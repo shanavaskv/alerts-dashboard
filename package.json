@@ -1,0 +1,28 @@
+{
+  "name": "todo-app",
+  "version": "0.1.0",
+  "description": "A Node.js app using Express 4",
+  "main": "index.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.13.4",
+    "body-parser": "^1.15.1",
+    "mongoose": "^4.4.15",
+    "node-restful": "0.2.5"
+  },
+  "engines": {
+    "node": "6.1.0"
+  },
+  "keywords": [
+    "node",
+    "heroku",
+    "express"
+  ],
+  "author": "Shanavas Veedu",
+  "contributors": [
+    "Shanavas Veedu (shanavaskv@gmail.com)"
+  ],
+  "license": "MIT"
+}
