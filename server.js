@@ -2,7 +2,7 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
-var uristring = process.env.MONGOLAB_URI || process.env.MONGOHQ_URL || 'mongodb://localhost/HelloMongoose';
+var uristring = process.env.MONGOLAB_URI || process.env.MONGODB_URI || 'mongodb://localhost/HelloMongoose';
 
 mongoose.connect(uristring, function (err, res) {
   if (err) {
