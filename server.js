@@ -6,21 +6,26 @@ var uristring = process.env.MONGOLAB_URI || process.env.MONGODB_URI || 'mongodb:
 
 mongoose.connect(uristring, function (err, res) {
   if (err) {
-    console.log ('ERROR connecting to: ' + uristring + '. ' + err);
+    console.log ('Error connecting to: ' + uristring + '. ' + err);
   } else {
-    console.log ('Succeeded connected to: ' + uristring);
+    console.log ('Success connecting to: ' + uristring);
   }
 });
 
 var app = express();
 
-app.set('port', (process.env.PORT || 5000));
 app.use(express.static(__dirname + '/public'));
 
-app.get('/', function(request, response){
-  response.send('Hello World')
-})
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
 
+app.use('/api', require('./routes/api'));
+
+// app.get('/', function(request, response){
+//   response.send('Hello World')
+// })
+
+app.set('port', (process.env.PORT || 5000));
 app.listen( app.get('port'), function() {
   console.log("App running at:" + app.get('port'))
 })
