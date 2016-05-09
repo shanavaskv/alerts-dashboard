@@ -38,7 +38,7 @@ display: none !important;
         </tr> -->
         <tr ng-repeat="alert in alerts">
           <td>{{alert.name}}</td>
-          <td>{{alert.acknowledged}}</td>
+          <td><input type="checkbox" ng-model="alert.acknowledged"></td>
           <td>{{alert.resolved}}</td>
           <td>{{alert.resolution}}</td>
           <!-- <td>
