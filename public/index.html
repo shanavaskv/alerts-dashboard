@@ -39,8 +39,8 @@ display: none !important;
         <tr ng-repeat="alert in alerts">
           <td>{{alert.name}}</td>
           <td><input type="checkbox" ng-model="alert.acknowledged"></td>
-          <td>{{alert.resolved}}</td>
-          <td>{{alert.resolution}}</td>
+          <td><input type="checkbox" ng-model="alert.resolved"></td>
+          <td><input type="text" ng-model="alert.resolution" required="" placeholder="Resolution" ng-disabled = alert.resolved></td>
           <!-- <td>
             <div class="btn-group">
               <button class="btn btn-danger" ng-click="remove(product)">Remove</button>
