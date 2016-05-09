@@ -1,7 +1,7 @@
 <!DOCTYPE>
 <html ng-app="myApp">
 <head>
-  <title>ToDo AnuglarJS Rest API</title>
+  <title>Alert Dashboard</title>
 <link rel="stylesheet" href="css/bootstrap.min.css">
 <link rel="stylesheet" href="css/ngProgress.css">
 <link rel="stylesheet" href="css/toaster.css">
@@ -12,20 +12,20 @@ display: none !important;
 </style>
 </head>
 <body ng-cloak>
-  <div class="container" ng-controller="ProductsCtrl">
+  <div class="container" ng-controller="AlertsCtrl">
     <form name="Codenx" novalidate>
     <table class="table">
       <thead>
         <tr>
-          <th>Name</th>
-          <th>SKU</th>
-          <th>Price</th>
-          <th>Action</th>
+          <th>Alert</th>
+          <th>Acknowledge</th>
+          <th>Resolved</th>
+          <th>Resolution</th>
           <th>&nbsp;</th>
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <!-- <tr>
           <td><input class="form-control" ng-model="product.name" required="" placeholder="Product Name"></td>
           <td><input class="form-control" ng-model="product.sku" placeholder="Stock Control Unit"></td>
           <td><input class="form-control" ng-model="product.price" placeholder="Should be a number"></td>
@@ -35,17 +35,18 @@ display: none !important;
               <button class="btn" ng-click="deselect()" ng-if="product._id">Clear</button>
             </div>
           </td>
-        </tr>
-        <tr ng-repeat="product in products">
-          <td>{{product.name}}</td>
-          <td>{{product.sku}}</td>
-          <td>{{product.price}}</td>
-          <td>
+        </tr> -->
+        <tr ng-repeat="alert in alerts">
+          <td>{{alert.name}}</td>
+          <td>{{alert.replied}}</td>
+          <td>{{alert.resolved}}</td>
+          <td>{{alert.resolution}}</td>
+          <!-- <td>
             <div class="btn-group">
               <button class="btn btn-danger" ng-click="remove(product)">Remove</button>
               <button class="btn btn-warning" ng-click="edit(product._id)">Edit</button>
             </div>
-          </td>
+          </td> -->
         </tr>
       </tbody>
     </table>
@@ -62,6 +63,6 @@ display: none !important;
 <script src="js/ngProgress.min.js"></script>
 <script src="js/toaster.js"></script>
 <script src="app/app.js"></script>
-<script src="app/products.js"></script>
+<script src="app/alerts.js"></script>
 </body>
 </html>
