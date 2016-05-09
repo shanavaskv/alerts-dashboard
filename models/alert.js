@@ -3,8 +3,8 @@ var mongoose = restful.mongoose;
 
 var schema = new mongoose.Schema({
   name          : String,
-  acknowledged  : Boolean,
-  resolved      : Boolean,
+  acknowledged  : Number,
+  resolved      : Number,
   resolution    : String
 });
 
