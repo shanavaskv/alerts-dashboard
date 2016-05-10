@@ -50,13 +50,13 @@ app.factory('Alert', function($resource) {
   });
 });
 
-app.factory('elapTime', function($interval){
-    return function(iniTime){
-    		// var res = {elapse: 0};
-        var res = 0;
-        $interval(function() {
-            res = Math.floor(((new Date()).getTime() - iniTime)/1000);
-        }, 1000);
-        return res;
-    };
-})
+// app.factory('elapTime', function($interval){
+//     return function(iniTime){
+//     		// var res = {elapse: 0};
+//         var res = 0;
+//         $interval(function() {
+//             res = Math.floor(((new Date()).getTime() - iniTime)/1000);
+//         }, 1000);
+//         return res;
+//     };
+// })

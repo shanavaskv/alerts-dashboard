@@ -1,4 +1,4 @@
-app.controller('AlertsCtrl', function($scope, Alert, elapTime, ngProgress, toaster) {
+app.controller('AlertsCtrl', function($scope, Alert, ngProgress, toaster) {
 
   $scope.alert = new Alert();
 
@@ -43,6 +43,23 @@ app.controller('AlertsCtrl', function($scope, Alert, elapTime, ngProgress, toast
     $scope.alert = "";
   };
 
+  $scope.elapse = function(alert) {
+    var etime = Date.parse(alert.createdat);
+    if (alert.acknowledged){
+      var nowti = Date.parse(alert.acknowldat);
+    } else {
+      var nowti = (new Date()).getTime();
+    }
+    return Math.floor((nowti - etime)/1000/60);
+  };
+
+  $scope.chstatus = function(alert) {
+    if ($scope.elapse(alert) > 15){
+      return "danger";
+    } else {
+      return "active";
+    }
+  };
     // $scope.elapse = function(etime) {
     //   return Date.parse(etime);
     // }

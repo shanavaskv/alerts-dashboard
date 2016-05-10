@@ -27,7 +27,7 @@
         </tr>
       </thead>
       <tbody>
-        <tr ng-repeat="alert in alerts">
+        <tr ng-repeat="alert in alerts" class="{{chstatus(alert)}}">
           <td><input class="form-control" type="text" ng-model="alert.name" placeholder="alert.name" readonly></td>
           <td><div class="checkbox">
             <input type="checkbox" ng-model="alert.acknowledged" ng-change="update(alert)">
@@ -36,7 +36,7 @@
           <td><div class="checkbox">
             <input type="checkbox" ng-model="alert.resolved" ng-change="update(alert)">
           </div></td>
-          <!-- <td>{{ t(alert.createdat).elapse }}</td> -->
+          <td>{{ elapse(alert) }}</td>
         </tr>
         <tr>
           <td><input class="form-control" ng-model="alert.name" required="" placeholder="Alert Name"></td>
