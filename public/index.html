@@ -6,47 +6,45 @@
 <link rel="stylesheet" href="css/ngProgress.css">
 <link rel="stylesheet" href="css/toaster.css">
 <style>
-[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
-display: none !important;
-}
+[ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak { display: none !important;}
 </style>
 </head>
 <body ng-cloak>
+  <div style="text-align: center;">
+    <span style="border:0px;"><h1>Alerts Dashboard</h1></span>
+  </div>
   <div class="container" ng-controller="AlertsCtrl">
     <form name="Codenx" novalidate>
-    <table class="table">
+    <table class="table table-striped">
       <thead>
         <tr>
           <th>Alert</th>
           <th>Acknowledge</th>
-          <th>Resolved</th>
           <th>Resolution</th>
-          <th>&nbsp;</th>
+          <th>Resolved</th>
+          <th>Elapsed</th>
+          <!-- <th>&nbsp;</th> -->
         </tr>
       </thead>
       <tbody>
-        <!-- <tr>
-          <td><input class="form-control" ng-model="product.name" required="" placeholder="Product Name"></td>
-          <td><input class="form-control" ng-model="product.sku" placeholder="Stock Control Unit"></td>
-          <td><input class="form-control" ng-model="product.price" placeholder="Should be a number"></td>
-          <td><button class="btn btn-primary" ng-click="add(product)" ng-if="!product._id" type="submit" ng-disabled="!Codenx.$valid">Add Product</button>
-            <div class="btn-group">
-              <button class="btn btn-info" ng-click="update(product)" ng-if="product._id" type="submit">Update</button>
-              <button class="btn" ng-click="deselect()" ng-if="product._id">Clear</button>
-            </div>
-          </td>
-        </tr> -->
         <tr ng-repeat="alert in alerts">
-          <td>{{alert.name}}</td>
-          <td><input type="checkbox" ng-model="alert.acknowledged"></td>
-          <td><input type="checkbox" ng-model="alert.resolved"></td>
-          <td><input type="text" ng-model="alert.resolution" required="" placeholder="Resolution" ng-disabled = alert.resolved></td>
-          <!-- <td>
-            <div class="btn-group">
-              <button class="btn btn-danger" ng-click="remove(product)">Remove</button>
-              <button class="btn btn-warning" ng-click="edit(product._id)">Edit</button>
-            </div>
-          </td> -->
+          <td><input class="form-control" type="text" ng-model="alert.name" placeholder="alert.name" readonly></td>
+          <td><div class="checkbox">
+            <input type="checkbox" ng-model="alert.acknowledged" ng-change="update(alert)">
+          </div></td>
+          <td><input class="form-control" ng-model="alert.resolution" required="" placeholder="Resolution" ng-disabled=alert.resolved></td>
+          <td><div class="checkbox">
+            <input type="checkbox" ng-model="alert.resolved" ng-change="update(alert)">
+          </div></td>
+          <!-- <td>{{ t(alert.createdat).elapse }}</td> -->
+        </tr>
+        <tr>
+          <td><input class="form-control" ng-model="alert.name" required="" placeholder="Alert Name"></td>
+          <td><div class="checkbox"><input type="checkbox" ng-model="alert.acknowledged"></div>
+          <td><input class="form-control" ng-model="alert.resolution" placeholder="Resolution Comment"></td>
+          <td><div class="checkbox"><input type="checkbox" ng-model="alert.resolved"></div></td>
+          <td><button class="btn btn-primary" ng-click="add(alert)" ng-if="!alert._id" type="submit">Add Alert</button>
+          </td>
         </tr>
       </tbody>
     </table>

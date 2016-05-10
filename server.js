@@ -2,13 +2,13 @@ var express = require('express');
 var mongoose = require('mongoose');
 var bodyParser = require('body-parser');
 
-var uristring = process.env.MONGOLAB_URI || process.env.MONGODB_URI || 'mongodb://localhost/dashboard-db';
-
-mongoose.connect(uristring, function (err, res) {
+// var mongo_uri = process.env.MONGOLAB_URI || process.env.MONGODB_URI || 'mongodb://localhost/dashboard-db';
+var mongo_uri = "mongodb://heroku_cjz43w1w:pqua4v1tolr4suv4p0q4garbg8@ds017582.mlab.com:17582/heroku_cjz43w1w";
+mongoose.connect(mongo_uri, function (err, res) {
   if (err) {
-    console.log ('Error connecting to: ' + uristring + '. ' + err);
+    console.log ('Error connecting to: ' + mongo_uri + '. ' + err);
   } else {
-    console.log ('Success connecting to: ' + uristring);
+    console.log ('Success connecting to: ' + mongo_uri);
   }
 });
 

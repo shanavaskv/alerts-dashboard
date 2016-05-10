@@ -42,11 +42,21 @@ app.directive('loading',   ['$http', 'ngProgress', function ($http, ngProgress)
     };
 }]);
 
-// Create a resource factory to access products table from database
 app.factory('Alert', function($resource) {
   return $resource('/api/alerts/:id', { id: '@_id' }, {
-    update: { // We need to define this method manually as it is not provided with ng-resource
+    update: {
       method: 'PUT'
     }
   });
 });
+
+app.factory('elapTime', function($interval){
+    return function(iniTime){
+    		// var res = {elapse: 0};
+        var res = 0;
+        $interval(function() {
+            res = Math.floor(((new Date()).getTime() - iniTime)/1000);
+        }, 1000);
+        return res;
+    };
+})

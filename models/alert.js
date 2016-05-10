@@ -1,11 +1,13 @@
 var restful = require('node-restful');
 var mongoose = restful.mongoose;
 
-var schema = new mongoose.Schema({
+var alertSchema = new mongoose.Schema({
   name          : String,
   acknowledged  : Boolean,
   resolved      : Boolean,
-  resolution    : String
+  resolution    : String,
+  createdat     : Date,
+  acknowldat    : Date
 });
 
-module.exports = restful.model('Alerts', schema);
+module.exports = restful.model('Alerts', alertSchema);
